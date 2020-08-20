@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.8.7-management
+    ports:
+      - "5672:5672"
+      - "5671:5671"
+      - "4369:4369"
+      - "15672:15672"
+      - "15671:15671"
+    restart: on-failure
+    environment:
+      RABBITMQ_DEFAULT_USER: curso-rabbit
+      RABBITMQ_DEFAULT_PASS: curso-rabbit
+    networks:
+      - curso-rabbit
+networks:
+  curso-rabbit:
